@@ -6,6 +6,10 @@ class Payment < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :doctor,
+             :through => :procedure,
+             :source => :doctor
+
   # Validations
 
 end
