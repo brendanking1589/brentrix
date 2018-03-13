@@ -5,6 +5,10 @@ class Patient < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :payments,
+             :through => :procedures,
+             :source => :payments
+
   # Validations
 
 end
