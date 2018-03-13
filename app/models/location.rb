@@ -5,6 +5,10 @@ class Location < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :procedures,
+             :through => :providers,
+             :source => :procedures
+
   # Validations
 
 end
