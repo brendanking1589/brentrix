@@ -5,6 +5,10 @@ class Patient < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :locations,
+             :through => :procedures,
+             :source => :location
+
   has_many   :payments,
              :through => :procedures,
              :source => :payments
