@@ -33,7 +33,7 @@
           Treatment
         </label>
 
-        <input type="text" id="treatment_id" name="treatment_id" placeholder="Treatment" class="form-control" value="<%= @procedure.treatment_id %>">
+        <%= select_tag(:treatment_id, options_from_collection_for_select(Treatment.all, :id, :treatment_code, @procedure.treatment_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for patient_id -->
