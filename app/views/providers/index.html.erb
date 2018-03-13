@@ -19,7 +19,7 @@
       <tr>
         <td><%= provider.doctor.first_name %></td>
         <td><%= provider.provider_code_string %></td>
-        <td><%= provider.location_id %></td>
+        <td><%= provider.location.city %></td>
         <td>
           <a href="/providers/<%= provider.id %>" class="btn btn-primary">Show</a>
           <a href="/providers/<%= provider.id %>/edit" class="btn btn-warning">Edit</a>
