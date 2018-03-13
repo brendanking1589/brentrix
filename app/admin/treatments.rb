@@ -1,4 +1,6 @@
 ActiveAdmin.register Treatment do
+
+ permit_params :description, :treatment_code
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
