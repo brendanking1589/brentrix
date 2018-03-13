@@ -17,7 +17,13 @@
       <% @payments.each do |payment| %>
       <tr>
         <td><%= payment.amount %></td>
-        <td><%= payment.procedure.provider_id %></td>
+        <td>
+          <% if payment.procedure.present? %>
+            <a href="/procedures/<%= payment.procedure.id %>">
+              <%= payment.procedure.provider_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/payments/<%= payment.id %>" class="btn btn-primary">Show</a>
           <a href="/payments/<%= payment.id %>/edit" class="btn btn-warning">Edit</a>

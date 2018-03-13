@@ -9,7 +9,13 @@
       <dd><%= @payment.amount %></dd>
 
       <dt>Procedure</dt>
-      <dd><%= @payment.procedure_id %></dd>
+      <dd>
+        <% if @payment.procedure.present? %>
+          <a href="/procedures/<%= @payment.procedure_id %>">
+            <%= @payment.procedure.provider_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

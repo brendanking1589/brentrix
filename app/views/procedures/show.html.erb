@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Provider</dt>
-      <dd><%= @procedure.provider_id %></dd>
+      <dd>
+        <% if @procedure.provider.present? %>
+          <a href="/providers/<%= @procedure.provider_id %>">
+            <%= @procedure.provider.provider_code_string %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Treatment</dt>
-      <dd><%= @procedure.treatment_id %></dd>
+      <dd>
+        <% if @procedure.treatment.present? %>
+          <a href="/treatments/<%= @procedure.treatment_id %>">
+            <%= @procedure.treatment.treatment_code %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Patient</dt>
-      <dd><%= @procedure.patient_id %></dd>
+      <dd>
+        <% if @procedure.patient.present? %>
+          <a href="/patients/<%= @procedure.patient_id %>">
+            <%= @procedure.patient.first_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Amount</dt>
       <dd><%= @procedure.amount %></dd>

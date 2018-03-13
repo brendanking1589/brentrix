@@ -17,9 +17,21 @@
 
       <% @providers.each do |provider| %>
       <tr>
-        <td><%= provider.doctor.first_name %></td>
+        <td>
+          <% if provider.doctor.present? %>
+            <a href="/doctors/<%= provider.doctor.id %>">
+              <%= provider.doctor.first_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= provider.provider_code_string %></td>
-        <td><%= provider.location.city %></td>
+        <td>
+          <% if provider.location.present? %>
+            <a href="/locations/<%= provider.location.id %>">
+              <%= provider.location.city %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/providers/<%= provider.id %>" class="btn btn-primary">Show</a>
           <a href="/providers/<%= provider.id %>/edit" class="btn btn-warning">Edit</a>
