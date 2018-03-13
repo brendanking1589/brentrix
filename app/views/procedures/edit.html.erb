@@ -42,7 +42,7 @@
           Patient
         </label>
 
-        <input type="text" id="patient_id" name="patient_id" placeholder="Patient" class="form-control" value="<%= @procedure.patient_id %>">
+        <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :first_name, @procedure.patient_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for amount -->
