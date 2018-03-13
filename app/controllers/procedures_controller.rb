@@ -1,6 +1,7 @@
 class ProceduresController < ApplicationController
   def index
-    @procedures = Procedure.page(params[:page]).per(10)
+    @q = Procedure.ransack(params[:q])
+    @procedures = @q.result(:distinct => true).includes(:patient, :provider, :treatment, :payments, :doctor, :location).page(params[:page]).per(10)
 
     render("procedures/index.html.erb")
   end

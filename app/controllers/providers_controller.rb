@@ -1,6 +1,7 @@
 class ProvidersController < ApplicationController
   def index
-    @providers = Provider.page(params[:page]).per(10)
+    @q = Provider.ransack(params[:q])
+    @providers = @q.result(:distinct => true).includes(:doctor, :procedures, :location).page(params[:page]).per(10)
 
     render("providers/index.html.erb")
   end
