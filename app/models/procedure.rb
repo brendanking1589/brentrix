@@ -1,6 +1,8 @@
 class Procedure < ApplicationRecord
   # Direct associations
 
+  has_many   :payments
+
   belongs_to :treatment,
              :counter_cache => true
 
