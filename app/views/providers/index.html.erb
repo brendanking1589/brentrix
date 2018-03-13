@@ -17,7 +17,7 @@
 
       <% @providers.each do |provider| %>
       <tr>
-        <td><%= provider.doctor_id %></td>
+        <td><%= provider.doctor.first_name %></td>
         <td><%= provider.provider_code_string %></td>
         <td><%= provider.location_id %></td>
         <td>
