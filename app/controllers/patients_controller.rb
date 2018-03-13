@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   def index
-    @patients = Patient.all
+    @patients = Patient.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@patients.where.not(:address_latitude => nil)) do |patient, marker|
       marker.lat patient.address_latitude
       marker.lng patient.address_longitude

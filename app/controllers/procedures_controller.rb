@@ -1,6 +1,6 @@
 class ProceduresController < ApplicationController
   def index
-    @procedures = Procedure.all
+    @procedures = Procedure.page(params[:page]).per(10)
 
     render("procedures/index.html.erb")
   end
