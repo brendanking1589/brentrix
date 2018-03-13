@@ -1,6 +1,9 @@
 class Provider < ApplicationRecord
   # Direct associations
 
+  belongs_to :location,
+             :counter_cache => true
+
   has_many   :procedures
 
   belongs_to :doctor,
