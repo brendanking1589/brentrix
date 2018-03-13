@@ -6,6 +6,10 @@ class Doctor < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :procedures,
+             :through => :provider_codes,
+             :source => :procedures
+
   # Validations
 
 end

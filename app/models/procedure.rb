@@ -14,6 +14,10 @@ class Procedure < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :doctor,
+             :through => :provider,
+             :source => :doctor
+
   # Validations
 
 end
