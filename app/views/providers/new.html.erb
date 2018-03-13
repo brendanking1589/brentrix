@@ -24,7 +24,7 @@
           Doctor
         </label>
 
-        <input type="text" id="doctor_id" name="doctor_id" placeholder="Doctor" class="form-control" value="<%= @provider.doctor_id %>">
+        <%= select_tag(:doctor_id, options_from_collection_for_select(Doctor.all, :id, :first_name, @provider.doctor_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for provider_code_string -->
