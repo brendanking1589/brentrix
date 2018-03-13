@@ -1,6 +1,9 @@
 class Procedure < ApplicationRecord
   # Direct associations
 
+  belongs_to :treatment,
+             :counter_cache => true
+
   belongs_to :provider,
              :counter_cache => true
 
