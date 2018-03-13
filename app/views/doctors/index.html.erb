@@ -21,7 +21,7 @@
         <td><%= doctor.first_name %></td>
         <td><%= doctor.last_name %></td>
         <td><%= doctor.phone_number %></td>
-        <td><%= doctor.doctor_image %></td>
+        <td><img src='<%= doctor.doctor_image %>' class='img-responsive'></td>
         <td>
           <a href="/doctors/<%= doctor.id %>" class="btn btn-primary">Show</a>
           <a href="/doctors/<%= doctor.id %>/edit" class="btn btn-warning">Edit</a>

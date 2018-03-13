@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/update_patient/<%= @patient.id %>" method="post">
+    <form action="/update_patient/<%= @patient.id %>" method="post" enctype="multipart/form-data">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -60,7 +60,8 @@
           Patient image
         </label>
 
-        <input type="text" id="patient_image" name="patient_image" placeholder="Patient image" class="form-control" value="<%= @patient.patient_image %>">
+        <%= cl_image_tag(@patient.patient_image.to_s, :width => 90, :height => 90, :crop => :thumb) %>
+        <input type="file" id="patient_image" name="patient_image" class="form-control">
       </div>
 
       <button class="btn btn-warning">

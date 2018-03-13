@@ -1,4 +1,6 @@
 class Patient < ApplicationRecord
+  mount_uploader :patient_image, PatientImageUploader
+
   # Direct associations
 
   has_many   :procedures
