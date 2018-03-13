@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @doctor.errors.any? %>
+  <% @doctor.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Doctor</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_doctor" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for first_name -->
+      <div class="form-group">
+        <label for="first_name" class="control-label">
+          First name
+        </label>
+
+        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= @doctor.first_name %>">
+      </div>
+
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="control-label">
+          Last name
+        </label>
+
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @doctor.last_name %>">
+      </div>
+
+      <!-- Label and input for phone_number -->
+      <div class="form-group">
+        <label for="phone_number" class="control-label">
+          Phone number
+        </label>
+
+        <input type="text" id="phone_number" name="phone_number" placeholder="Phone number" class="form-control" value="<%= @doctor.phone_number %>">
+      </div>
+
+      <!-- Label and input for doctor_image -->
+      <div class="form-group">
+        <label for="doctor_image" class="control-label">
+          Doctor image
+        </label>
+
+        <input type="text" id="doctor_image" name="doctor_image" placeholder="Doctor image" class="form-control" value="<%= @doctor.doctor_image %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Doctor
+      </button>
+      or
+      <a href="/doctors">Cancel</a>
+    </form>
+  </div>
+</div>
