@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @provider.errors.any? %>
+  <% @provider.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Provider #<%= @provider.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_provider/<%= @provider.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for doctor_id -->
+      <div class="form-group">
+        <label for="doctor_id" class="control-label">
+          Doctor
+        </label>
+
+        <input type="text" id="doctor_id" name="doctor_id" placeholder="Doctor" class="form-control" value="<%= @provider.doctor_id %>">
+      </div>
+
+      <!-- Label and input for provider_code_string -->
+      <div class="form-group">
+        <label for="provider_code_string" class="control-label">
+          Provider code string
+        </label>
+
+        <input type="text" id="provider_code_string" name="provider_code_string" placeholder="Provider code string" class="form-control" value="<%= @provider.provider_code_string %>">
+      </div>
+
+      <!-- Label and input for location_id -->
+      <div class="form-group">
+        <label for="location_id" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location_id" name="location_id" placeholder="Location" class="form-control" value="<%= @provider.location_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Provider
+      </button>
+      or
+      <a href="/providers/<%= @provider.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

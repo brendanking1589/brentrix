@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Providers
+    <a href="/providers/new" class="btn btn-lg btn-success">New Provider</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Doctor</th>
+        <th>Provider code string</th>
+        <th>Location</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @providers.each do |provider| %>
+      <tr>
+        <td><%= provider.doctor_id %></td>
+        <td><%= provider.provider_code_string %></td>
+        <td><%= provider.location_id %></td>
+        <td>
+          <a href="/providers/<%= provider.id %>" class="btn btn-primary">Show</a>
+          <a href="/providers/<%= provider.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_provider/<%= provider.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Provider resource:
+  # CREATE
+  get "/providers/new", :controller => "providers", :action => "new"
+  post "/create_provider", :controller => "providers", :action => "create"
+
+  # READ
+  get "/providers", :controller => "providers", :action => "index"
+  get "/providers/:id", :controller => "providers", :action => "show"
+
+  # UPDATE
+  get "/providers/:id/edit", :controller => "providers", :action => "edit"
+  post "/update_provider/:id", :controller => "providers", :action => "update"
+
+  # DELETE
+  get "/delete_provider/:id", :controller => "providers", :action => "destroy"
+  #------------------------------
+
   # Routes for the Patient resource:
   # CREATE
   get "/patients/new", :controller => "patients", :action => "new"
