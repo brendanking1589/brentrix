@@ -6,6 +6,7 @@ class ProvidersController < ApplicationController
   end
 
   def show
+    @procedure = Procedure.new
     @provider = Provider.find(params[:id])
 
     render("providers/show.html.erb")

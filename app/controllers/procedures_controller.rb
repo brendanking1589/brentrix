@@ -6,6 +6,7 @@ class ProceduresController < ApplicationController
   end
 
   def show
+    @payment = Payment.new
     @procedure = Procedure.find(params[:id])
 
     render("procedures/show.html.erb")
