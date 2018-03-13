@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Procedure resource:
+  # CREATE
+  get "/procedures/new", :controller => "procedures", :action => "new"
+  post "/create_procedure", :controller => "procedures", :action => "create"
+
+  # READ
+  get "/procedures", :controller => "procedures", :action => "index"
+  get "/procedures/:id", :controller => "procedures", :action => "show"
+
+  # UPDATE
+  get "/procedures/:id/edit", :controller => "procedures", :action => "edit"
+  post "/update_procedure/:id", :controller => "procedures", :action => "update"
+
+  # DELETE
+  get "/delete_procedure/:id", :controller => "procedures", :action => "destroy"
+  #------------------------------
+
   # Routes for the Treatment resource:
   # CREATE
   get "/treatments/new", :controller => "treatments", :action => "new"

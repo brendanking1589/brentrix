@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Procedure #<%= @procedure.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Provider</dt>
+      <dd><%= @procedure.provider_id %></dd>
+
+      <dt>Treatment</dt>
+      <dd><%= @procedure.treatment_id %></dd>
+
+      <dt>Patient</dt>
+      <dd><%= @procedure.patient_id %></dd>
+
+      <dt>Amount</dt>
+      <dd><%= @procedure.amount %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @procedure.date %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/procedures" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/procedures/<%= @procedure.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_procedure/<%= @procedure.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
