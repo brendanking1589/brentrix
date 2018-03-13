@@ -33,7 +33,7 @@
           Procedure
         </label>
 
-        <input type="text" id="procedure_id" name="procedure_id" placeholder="Procedure" class="form-control" value="<%= @payment.procedure_id %>">
+        <%= select_tag(:procedure_id, options_from_collection_for_select(Procedure.all, :id, :provider_id, @payment.procedure_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
