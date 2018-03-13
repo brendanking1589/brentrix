@@ -1,6 +1,11 @@
 class PatientsController < ApplicationController
   def index
     @patients = Patient.all
+    @location_hash = Gmaps4rails.build_markers(@patients.where.not(:address_latitude => nil)) do |patient, marker|
+      marker.lat patient.address_latitude
+      marker.lng patient.address_longitude
+      marker.infowindow "<h5><a href='/patients/#{patient.id}'>#{patient.first_name}</a></h5><small>#{patient.address_formatted_address}</small>"
+    end
 
     render("patients/index.html.erb")
   end
