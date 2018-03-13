@@ -24,7 +24,7 @@
           Provider
         </label>
 
-        <input type="text" id="provider_id" name="provider_id" placeholder="Provider" class="form-control" value="<%= @procedure.provider_id %>">
+        <%= select_tag(:provider_id, options_from_collection_for_select(Provider.all, :id, :provider_code_string, @procedure.provider_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for treatment_id -->
