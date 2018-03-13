@@ -1,4 +1,6 @@
 ActiveAdmin.register Provider do
+
+ permit_params :doctor_id, :provider_code_string, :location_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
