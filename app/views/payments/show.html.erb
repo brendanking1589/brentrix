@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Payment has many doctor -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Doctor
+      </li>
+
+      <% @payment.doctor.each do |doctor| %>
+        <li class="list-group-item">
+          <a href="/doctors/<%= doctor.id %>">
+            <%= doctor.first_name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/doctors/<%= doctor.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/doctors/<%= doctor.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_doctor/<%= doctor.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Payment has many patient -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Patient
+      </li>
+
+      <% @payment.patient.each do |patient| %>
+        <li class="list-group-item">
+          <a href="/patients/<%= patient.id %>">
+            <%= patient.first_name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/patients/<%= patient.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/patients/<%= patient.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_patient/<%= patient.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

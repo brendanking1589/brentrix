@@ -35,3 +35,96 @@
     </div>
   </div>
 </div>
+
+<!-- A Patient has many procedures -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Procedures
+      </li>
+
+      <% @patient.procedures.each do |procedure| %>
+        <li class="list-group-item">
+          <a href="/procedures/<%= procedure.id %>">
+            <%= procedure.provider_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/procedures/<%= procedure.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/procedures/<%= procedure.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_procedure/<%= procedure.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Patient has many payments -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Payments
+      </li>
+
+      <% @patient.payments.each do |payment| %>
+        <li class="list-group-item">
+          <a href="/payments/<%= payment.id %>">
+            <%= payment.amount %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/payments/<%= payment.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/payments/<%= payment.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_payment/<%= payment.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Patient has many locations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Locations
+      </li>
+
+      <% @patient.locations.each do |location| %>
+        <li class="list-group-item">
+          <a href="/locations/<%= location.id %>">
+            <%= location.city %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/locations/<%= location.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/locations/<%= location.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_location/<%= location.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

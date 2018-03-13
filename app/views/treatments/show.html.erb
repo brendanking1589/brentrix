@@ -26,3 +26,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Treatment has many procedures -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Procedures
+      </li>
+
+      <% @treatment.procedures.each do |procedure| %>
+        <li class="list-group-item">
+          <a href="/procedures/<%= procedure.id %>">
+            <%= procedure.provider_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/procedures/<%= procedure.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/procedures/<%= procedure.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_procedure/<%= procedure.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
